@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { SiteNav } from "@/components/SiteNav";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { LETTERS, runeUrl } from "@/lib/alphabet";
@@ -171,6 +172,7 @@ export default function RootLayout({
           </header>
           <main className="site-main">{children}</main>
         </div>
+        <Analytics />
       </body>
     </html>
   );
