@@ -8,7 +8,6 @@ import { normalizeInput } from "@/lib/alphabet";
 export function TranslatorPageClient() {
   const [inputText, setInputText] = useState("");
   const [layoutMode, setLayoutMode] = useState<LayoutMode>("column");
-  const [copyMessage, setCopyMessage] = useState("");
 
   const normalizedText = useMemo(
     () => normalizeInput(inputText, { keepSpaces: true }),
@@ -21,18 +20,8 @@ export function TranslatorPageClient() {
     setLayoutMode(mode);
   }
 
-  async function copyNormalizedText() {
-    try {
-      await navigator.clipboard.writeText(normalizedText);
-      setCopyMessage("copied");
-    } catch {
-      setCopyMessage("clipboard unavailable");
-    }
-  }
-
   function clearAll() {
     setInputText("");
-    setCopyMessage("");
   }
 
   return (
@@ -46,10 +35,7 @@ export function TranslatorPageClient() {
         <textarea
           id="translator-input"
           value={inputText}
-          onChange={(event) => {
-            setInputText(event.target.value);
-            setCopyMessage("");
-          }}
+          onChange={(event) => setInputText(event.target.value)}
           rows={5}
           placeholder="enter latin text..."
         />
@@ -62,21 +48,13 @@ export function TranslatorPageClient() {
       </section>
 
       <section className="actions-line">
-        <button type="button" className="action-link" onClick={copyNormalizedText}>
-          copy normalized text
-        </button>
         <button type="button" className="action-link" onClick={clearAll}>
           clear
         </button>
-        {copyMessage && <span className="meta-feedback">{copyMessage}</span>}
       </section>
 
       <section className="rune-output" aria-label="Rune output">
-        <RuneRenderer
-          tokens={tokens}
-          layoutMode={layoutMode}
-          emptyMessage="type to render runes."
-        />
+        <RuneRenderer tokens={tokens} layoutMode={layoutMode} emptyMessage="" />
       </section>
     </div>
   );

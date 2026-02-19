@@ -495,7 +495,7 @@ input[type="number"] {
   }
 
   .theme-switcher {
-    justify-self: center;
+    display: none;
   }
 
   .site-nav {
@@ -508,5 +508,9 @@ input[type="number"] {
 
   .page-column {
     gap: 1.5rem;
+  }
+
+  .input-section textarea {
+    min-height: 7.5rem;
   }
 }

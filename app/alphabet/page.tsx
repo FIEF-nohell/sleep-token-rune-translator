@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { AlphabetGrid } from "@/components/AlphabetGrid";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Alphabet",
+  title: {
+    absolute: `Alphabet | ${siteConfig.name}`,
+  },
   description: "Browse the complete A-Z Sleep Token rune alphabet mapping sheet.",
   alternates: {
     canonical: "/alphabet",

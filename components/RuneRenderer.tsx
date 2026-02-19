@@ -34,7 +34,7 @@ export function RuneRenderer({
   emptyMessage = "No runes yet.",
 }: RuneRendererProps) {
   if (tokens.length === 0) {
-    return <p className="rune-empty">{emptyMessage}</p>;
+    return emptyMessage ? <p className="rune-empty">{emptyMessage}</p> : null;
   }
 
   if (layoutMode === "row") {
