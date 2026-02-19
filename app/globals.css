@@ -1,15 +1,4 @@
 :root {
-  color-scheme: dark;
-  --bg: #383530;
-  --text: #e4ddd5;
-  --muted: #b7aea4;
-  --accent: #b03a2e;
-  --line: rgba(228, 221, 213, 0.26);
-  --hover: rgba(228, 221, 213, 0.09);
-  --rune-color: #e4ddd5;
-}
-
-html[data-theme="light"] {
   color-scheme: light;
   --bg: #e4ddd5;
   --text: #383530;
@@ -18,6 +7,17 @@ html[data-theme="light"] {
   --line: rgba(56, 53, 48, 0.3);
   --hover: rgba(56, 53, 48, 0.08);
   --rune-color: #383530;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #383530;
+  --text: #e4ddd5;
+  --muted: #b7aea4;
+  --accent: #b03a2e;
+  --line: rgba(228, 221, 213, 0.26);
+  --hover: rgba(228, 221, 213, 0.09);
+  --rune-color: #e4ddd5;
 }
 
 * {

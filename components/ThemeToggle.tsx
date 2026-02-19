@@ -12,7 +12,7 @@ function applyTheme(theme: Theme) {
 
 function readInitialTheme(): Theme {
   if (typeof window === "undefined") {
-    return "dark";
+    return "light";
   }
 
   const fromDocument = document.documentElement.dataset.theme;
@@ -25,7 +25,7 @@ function readInitialTheme(): Theme {
     return stored;
   }
 
-  return "dark";
+  return "light";
 }
 
 export function ThemeToggle() {
@@ -48,6 +48,7 @@ export function ThemeToggle() {
         className={`theme-option ${theme === "light" ? "is-active" : ""}`}
         onClick={() => updateTheme("light")}
         aria-pressed={theme === "light"}
+        aria-label="Switch to light theme"
       >
         light
       </button>
@@ -59,6 +60,7 @@ export function ThemeToggle() {
         className={`theme-option ${theme === "dark" ? "is-active" : ""}`}
         onClick={() => updateTheme("dark")}
         aria-pressed={theme === "dark"}
+        aria-label="Switch to dark theme"
       >
         dark
       </button>

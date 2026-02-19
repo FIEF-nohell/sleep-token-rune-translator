@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
 import { AlphabetGrid } from "@/components/AlphabetGrid";
+
+export const metadata: Metadata = {
+  title: "Alphabet",
+  description: "Browse the complete A-Z Sleep Token rune alphabet mapping sheet.",
+  alternates: {
+    canonical: "/alphabet",
+  },
+};
 
 export default function AlphabetPage() {
   return (
