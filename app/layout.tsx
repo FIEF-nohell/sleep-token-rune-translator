@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import { SiteNav } from "@/components/SiteNav";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { LETTERS, runeUrl } from "@/lib/alphabet";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -140,6 +141,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {LETTERS.map((letter) => (
+          <link
+            key={letter}
+            rel="preload"
+            as="image"
+            href={runeUrl(letter)}
+            type="image/svg+xml"
+          />
+        ))}
+      </head>
       <body className={mono.variable}>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <script
@@ -148,10 +160,13 @@ export default function RootLayout({
         />
         <div className="site-frame">
           <header className="site-header">
-            <div className="header-line">
-              <span className="header-spacer" aria-hidden="true" />
-              <SiteNav />
-              <ThemeToggle />
+            <div className="header-stack">
+              <p className="site-kicker">sleep token</p>
+              <div className="header-line">
+                <span className="header-spacer" aria-hidden="true" />
+                <SiteNav />
+                <ThemeToggle />
+              </div>
             </div>
           </header>
           <main className="site-main">{children}</main>

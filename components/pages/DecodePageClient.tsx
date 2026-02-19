@@ -38,7 +38,7 @@ export function DecodePageClient() {
 
   return (
     <div className="page-column">
-      <h1 className="page-title">Rune Picker Decoder</h1>
+      <h1 className="visually-hidden">Rune Picker Decoder</h1>
 
       <section className="controls-block">
         <div className="controls-line">

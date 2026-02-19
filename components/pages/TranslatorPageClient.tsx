@@ -26,7 +26,7 @@ export function TranslatorPageClient() {
 
   return (
     <div className="page-column">
-      <h1 className="page-title">Sleep Token Rune Translator</h1>
+      <h1 className="visually-hidden">Sleep Token Rune Translator</h1>
 
       <section className="input-section">
         <label className="visually-hidden" htmlFor="translator-input">

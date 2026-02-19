@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sleep Token Rune Translator
 
-## Getting Started
+A minimal web tool for:
+- Translating Latin text into Sleep Token runes
+- Decoding rune sequences back to letters
+- Viewing the full A-Z rune mapping
 
-First, run the development server:
+No account, no login, no setup needed for normal use.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Pages
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Translator (`/`)
+Type text and see runes live.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `layout: row | column`
+- `clear` resets the current input
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Behavior:
+- Letters are normalized to lowercase.
+- Spaces are preserved.
+- In `column` mode, a space starts a new column.
 
-## Learn More
+### Decode (`/decode`)
+Click rune letters to build a sequence.
 
-To learn more about Next.js, take a look at the following resources:
+- Live rune sequence preview
+- Live decoded text
+- Actions: `backspace`, `clear`, `copy decoded text`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Alphabet (`/alphabet`)
+Reference sheet for the full rune alphabet (A-Z).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Layout Modes
 
-## Deploy on Vercel
+- `row`: runes flow left to right, wrapping naturally
+- `column`: runes stack top to bottom; spaces force the next column
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Theme
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Light mode is the default.
+- Dark mode is available from the header switch (hidden on mobile).
+
+## Privacy
+
+This tool runs entirely in your browser.
+No user text is sent to an external API by the app itself.
+
+## Quick Tips
+
+- Paste text directly into Translator for fast conversion.
+- Use spaces in column mode to control grouping visually.
+- Use Decode when you want to reconstruct text rune-by-rune.
