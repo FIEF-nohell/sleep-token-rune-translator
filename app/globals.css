@@ -510,7 +510,11 @@ input[type="number"] {
     gap: 1.5rem;
   }
 
+  .page-title {
+    font-size: 24px;
+  }
+
   .input-section textarea {
-    min-height: 7.5rem;
+    min-height: 6rem;
   }
 }

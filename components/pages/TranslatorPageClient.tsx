@@ -44,13 +44,10 @@ export function TranslatorPageClient() {
       <section className="controls-block">
         <div className="controls-line">
           <LayoutModeToggle mode={layoutMode} onChange={handleLayoutModeChange} />
+          <button type="button" className="action-link" onClick={clearAll}>
+            clear
+          </button>
         </div>
-      </section>
-
-      <section className="actions-line">
-        <button type="button" className="action-link" onClick={clearAll}>
-          clear
-        </button>
       </section>
 
       <section className="rune-output" aria-label="Rune output">
